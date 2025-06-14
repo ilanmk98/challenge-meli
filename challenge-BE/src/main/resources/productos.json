@@ -6,6 +6,8 @@
         "precioActual": 12000.0,
         "stockActual": 10,
         "calificacion": 4.5,
+        "idCategoria":1,
+        "idSubCategoria": 1,
         "descripcion": "Auriculares con excelente calidad de sonido.",
         "cuotasSinInteres": 3,
         "vendedorId": 1,

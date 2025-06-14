@@ -1,0 +1,6 @@
+{
+  "subcategorias": [
+    { "id": 1, "nombre": "Auriculares", "categoriaId": 1 },
+    { "id": 2, "nombre": "Celulares", "categoriaId": 1 }
+  ]
+}

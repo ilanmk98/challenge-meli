@@ -15,6 +15,8 @@ public class Producto {
     private int stockActual;
 
     private double calificacion;
+    private Long idCategoria;
+    private Long idSubCategoria;
 
     private List<Highlight> highlights;
 
@@ -27,6 +29,22 @@ public class Producto {
     private Long vendedorId;
 
     private Integer cuotasSinInteres;
+
+    public Long getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public Long getIdSubCategoria() {
+        return idSubCategoria;
+    }
+
+    public void setIdSubCategoria(Long idSubCategoria) {
+        this.idSubCategoria = idSubCategoria;
+    }
 
     public Long getId() {
         return id;
