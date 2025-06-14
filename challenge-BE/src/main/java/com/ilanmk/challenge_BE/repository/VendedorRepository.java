@@ -16,7 +16,7 @@ public class VendedorRepository {
     private List<Vendedor> vendedores;
 
     @PostConstruct
-    public void cargarDatos() {
+    private void cargarDatos() {
         try (InputStream input = getClass().getResourceAsStream("/vendedores.json")) {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> datos = objectMapper.readValue(input, new TypeReference<>() {

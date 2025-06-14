@@ -16,7 +16,7 @@ public class SubcategoriaProductoRepository {
     private List<SubcategoriaProducto> subCategorias;
 
     @PostConstruct
-    public void cargarDatos() {
+    private void cargarDatos() {
         try (InputStream input = getClass().getResourceAsStream("/subcategorias.json")) {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> datos = objectMapper.readValue(input, new TypeReference<>() {});

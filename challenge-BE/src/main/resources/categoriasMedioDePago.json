@@ -1,10 +1,10 @@
 {"categoriasMedioDePago": [
   {
     "id": 1,
-    "nombre": "Tarjetas"
+    "nombre": "Tarjeta de credito"
   },
   {
     "id": 2,
-    "nombre": "Transferencias"
+    "nombre": "Tarjeta de debito"
   }
 ]}

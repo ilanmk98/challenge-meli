@@ -7,12 +7,11 @@ public class ProductoRelacionadoDTO {
     private int cuotasSinInteres;
     private MediaDTO imagen;
 
-    public ProductoRelacionadoDTO(String titulo, double precioOriginal, double precioActual, int cuotasSinInteres, MediaDTO imagen) {
+    public ProductoRelacionadoDTO(String titulo, double precioOriginal, double precioActual, int cuotasSinInteres) {
         this.titulo = titulo;
         this.precioOriginal = precioOriginal;
         this.precioActual = precioActual;
         this.cuotasSinInteres = cuotasSinInteres;
-        this.imagen = imagen;
     }
 
     public ProductoRelacionadoDTO() {

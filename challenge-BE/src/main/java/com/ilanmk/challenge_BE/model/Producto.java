@@ -14,6 +14,8 @@ public class Producto {
 
     private int stockActual;
 
+    private String marca;
+
     private double calificacion;
     private Long idCategoria;
     private Long idSubCategoria;
@@ -138,6 +140,14 @@ public class Producto {
     }
     public double getCalificacion(){
         return this.calificacion;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }
 

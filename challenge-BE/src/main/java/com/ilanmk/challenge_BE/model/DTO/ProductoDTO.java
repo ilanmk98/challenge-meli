@@ -31,13 +31,14 @@ public class ProductoDTO {
 
     private SubcategoriaProductoDTO subcategoria;
     private int porcentajeDescuento;
+    private String marca;
 
 
     public ProductoDTO() {
     }
 
 
-    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<HighlightDTO> highlights, List<MediaDTO> media, List<CaracteristicaDTO> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres, double calificacion) {
+    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<HighlightDTO> highlights, List<MediaDTO> media, List<CaracteristicaDTO> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres, double calificacion,String marca) {
         this.titulo = titulo;
         this.precioOriginal = precioOriginal;
         this.precioActual = precioActual;
@@ -49,6 +50,7 @@ public class ProductoDTO {
         this.vendedorId = vendedorId;
         this.cuotasSinInteres = cuotasSinInteres;
         this.calificacion = calificacion;
+        this.marca = marca;
     }
 
     public String getTitulo() {
@@ -152,5 +154,13 @@ public class ProductoDTO {
 
     public void setPorcentajeDescuento(int porcentajeDescuento) {
         this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 }
