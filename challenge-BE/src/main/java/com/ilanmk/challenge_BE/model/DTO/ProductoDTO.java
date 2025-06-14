@@ -15,11 +15,11 @@ public class ProductoDTO {
 
     private int stockActual;
 
-    private List<Highlight> highlights;
+    private List<HighlightDTO> highlights;
 
-    private List<Media> media;
+    private List<MediaDTO> media;
 
-    private List<Caracteristica> caracteristicas;
+    private List<CaracteristicaDTO> caracteristicas;
 
     private String descripcion;
 
@@ -33,7 +33,7 @@ public class ProductoDTO {
     public ProductoDTO() {
     }
 
-    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<Highlight> highlights, List<Media> media, List<Caracteristica> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres,double calificacion) {
+    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<HighlightDTO> highlights, List<MediaDTO> media, List<CaracteristicaDTO> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres,double calificacion) {
         this.titulo = titulo;
         this.precioOriginal = precioOriginal;
         this.precioActual = precioActual;
@@ -79,27 +79,27 @@ public class ProductoDTO {
         this.stockActual = stockActual;
     }
 
-    public List<Highlight> getHighlights() {
+    public List<HighlightDTO> getHighlights() {
         return highlights;
     }
 
-    public void setHighlights(List<Highlight> highlights) {
+    public void setHighlights(List<HighlightDTO> highlights) {
         this.highlights = highlights;
     }
 
-    public List<Media> getMedia() {
+    public List<MediaDTO> getMedia() {
         return media;
     }
 
-    public void setMedia(List<Media> media) {
+    public void setMedia(List<MediaDTO> media) {
         this.media = media;
     }
 
-    public List<Caracteristica> getCaracteristicas() {
+    public List<CaracteristicaDTO> getCaracteristicas() {
         return caracteristicas;
     }
 
-    public void setCaracteristicas(List<Caracteristica> caracteristicas) {
+    public void setCaracteristicas(List<CaracteristicaDTO> caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
 
