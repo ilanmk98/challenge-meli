@@ -32,4 +32,15 @@ public class ProductoRepository {
                 .filter(producto -> producto.getId().equals(id))
                 .findFirst();
     }
+    public Optional<Long> obtenerSubcategoria(Long id){
+        return productos.stream().filter(producto->producto.getId().equals(id))
+                .map(producto->producto.getIdSubCategoria()).findFirst();
+    }
+
+    public List<Producto> obtenerMismaSubcategoria(Long idProducto,Long idSubcategoria,int limiteProductos){
+        return productos.stream()
+                .filter(producto-> producto.getIdSubCategoria().equals(idSubcategoria) && !producto.getId().equals(idProducto))
+                .limit(limiteProductos)
+                .toList();
+    }
 }

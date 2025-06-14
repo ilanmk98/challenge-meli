@@ -1,6 +1,8 @@
 package com.ilanmk.challenge_BE.service.impl;
 
 import com.ilanmk.challenge_BE.model.DTO.ProductoDTO;
+import com.ilanmk.challenge_BE.model.DTO.ProductoRelacionadoDTO;
+import com.ilanmk.challenge_BE.model.Producto;
 import com.ilanmk.challenge_BE.repository.ProductoRepository;
 import com.ilanmk.challenge_BE.service.ProductoService;
 import com.ilanmk.challenge_BE.service.SubcategoriaProductoService;
@@ -15,6 +17,7 @@ public class ProductoServiceImpl implements ProductoService {
     private final ProductoRepository repositorio;
     private final ModelMapper modelMapper;
     private final SubcategoriaProductoService subcategoriaProductoService;
+    private static final int CANTIDAD_PRODUCTOS_SIMILARES_MAXIMA = 5;
 
     public ProductoServiceImpl(ProductoRepository repositorio, ModelMapper modelMapper, SubcategoriaProductoService subcategoriaProductoService) {
         this.repositorio = repositorio;
@@ -25,20 +28,25 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public ProductoDTO obtenerPorId(Long id) {
         return repositorio.obtenerPorId(id)
-                .map(producto ->
-                        {
-                            ProductoDTO dto = modelMapper.map(producto, ProductoDTO.class);
-                            dto.setSubcategoria(subcategoriaProductoService.obtenerPorId(producto.getIdSubCategoria()));
-                            dto.setPorcentajeDescuento(calcularDescuento(producto.getPrecioOriginal(),producto.getPrecioActual()));
-                            return dto;
-                        }
-                ).stream().findFirst()
+                .map(producto -> getProductoDTO(producto))
+                .stream()
+                .findFirst()
                 .orElseThrow(() -> new EntityNotFoundException("Producto no encontrado"));
     }
 
+    private ProductoDTO getProductoDTO(Producto producto) {
+        ProductoDTO dto = modelMapper.map(producto, ProductoDTO.class);
+        dto.setSubcategoria(subcategoriaProductoService.obtenerPorId(producto.getIdSubCategoria()));
+        dto.setPorcentajeDescuento(calcularDescuento(producto.getPrecioOriginal(), producto.getPrecioActual()));
+        return dto;
+    }
+
     @Override
-    public List<ProductoDTO> obtenerSimilares(Long id) {
-        return null;
+    public List<ProductoRelacionadoDTO> obtenerSimilares(Long id) {
+        Long idSubcategoria = repositorio.obtenerSubcategoria(id).get();
+        return repositorio.obtenerMismaSubcategoria(id,idSubcategoria,CANTIDAD_PRODUCTOS_SIMILARES_MAXIMA)
+                .stream().map(producto->modelMapper.map(producto, ProductoRelacionadoDTO.class))
+                .toList();
     }
 
     private int calcularDescuento(double precioOriginal, double precioActual){
