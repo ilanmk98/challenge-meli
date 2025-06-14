@@ -27,11 +27,13 @@ public class ProductoDTO {
 
     private Integer cuotasSinInteres;
 
+    private double calificacion;
+
 
     public ProductoDTO() {
     }
 
-    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<Highlight> highlights, List<Media> media, List<Caracteristica> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres) {
+    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<Highlight> highlights, List<Media> media, List<Caracteristica> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres,double calificacion) {
         this.titulo = titulo;
         this.precioOriginal = precioOriginal;
         this.precioActual = precioActual;
@@ -42,6 +44,7 @@ public class ProductoDTO {
         this.descripcion = descripcion;
         this.vendedorId = vendedorId;
         this.cuotasSinInteres = cuotasSinInteres;
+        this.calificacion = calificacion;
     }
 
     public String getTitulo() {
@@ -122,5 +125,12 @@ public class ProductoDTO {
 
     public void setCuotasSinInteres(Integer cuotasSinInteres) {
         this.cuotasSinInteres = cuotasSinInteres;
+    }
+
+    public double getCalificacion(){
+        return calificacion;
+    }
+    public void setCalificacion(double calificacion){
+        this.calificacion = calificacion;
     }
 }

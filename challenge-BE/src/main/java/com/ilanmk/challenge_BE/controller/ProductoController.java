@@ -1,7 +1,7 @@
 package com.ilanmk.challenge_BE.controller;
 
 import com.ilanmk.challenge_BE.model.DTO.ProductoDTO;
-import com.ilanmk.challenge_BE.service.productoService;
+import com.ilanmk.challenge_BE.service.ProductoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/producto")
-public class productoController {
+public class ProductoController {
 
-    private final productoService productoService;
+    private final ProductoService productoService;
 
-    public productoController(productoService productoService) {
+    public ProductoController(ProductoService productoService) {
         this.productoService = productoService;
     }
     @GetMapping("/{id}")

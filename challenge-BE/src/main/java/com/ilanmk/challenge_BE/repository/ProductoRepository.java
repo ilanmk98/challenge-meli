@@ -2,27 +2,34 @@ package com.ilanmk.challenge_BE.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ilanmk.challenge_BE.model.CategoriaMedioPago;
-import com.ilanmk.challenge_BE.model.MedioDePago;
 import com.ilanmk.challenge_BE.model.Producto;
-import com.ilanmk.challenge_BE.model.Vendedor;
 import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-
-public class medioDePagoRepository {
-    private List<MedioDePago> mediosDePago;
+import java.util.Optional;
+@Component
+public class ProductoRepository {
+    private List<Producto> productos;
 
     @PostConstruct
     public void cargarDatos() {
-        try (InputStream input = getClass().getResourceAsStream("/medioDePago.json")) {
+        try (InputStream input = getClass().getResourceAsStream("/productos.json")) {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> datos = objectMapper.readValue(input, new TypeReference<>() {});
-            mediosDePago = objectMapper.convertValue(datos.get("mediosDePago"), new TypeReference<List<MedioDePago>>() {});
+
+            productos = objectMapper.convertValue(datos.get("productos"), new TypeReference<List<Producto>>() {});
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Optional<Producto> obtenerPorId(Long id){
+        return productos.stream()
+                .filter(producto -> producto.getId().equals(id))
+                .findFirst();
     }
 }
