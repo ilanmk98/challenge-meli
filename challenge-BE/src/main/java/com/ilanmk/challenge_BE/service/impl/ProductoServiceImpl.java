@@ -7,6 +7,9 @@ import com.ilanmk.challenge_BE.service.SubcategoriaProductoService;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class ProductoServiceImpl implements ProductoService {
     private final ProductoRepository repositorio;
@@ -26,9 +29,23 @@ public class ProductoServiceImpl implements ProductoService {
                         {
                             ProductoDTO dto = modelMapper.map(producto, ProductoDTO.class);
                             dto.setSubcategoria(subcategoriaProductoService.obtenerPorId(producto.getIdSubCategoria()));
+                            dto.setPorcentajeDescuento(calcularDescuento(producto.getPrecioOriginal(),producto.getPrecioActual()));
                             return dto;
                         }
                 ).stream().findFirst()
                 .orElseThrow(() -> new EntityNotFoundException("Producto no encontrado"));
+    }
+
+    @Override
+    public List<ProductoDTO> obtenerSimilares(Long id) {
+        return null;
+    }
+
+    private int calcularDescuento(double precioOriginal, double precioActual){
+        if (precioOriginal <= 0 || precioActual<=0) {
+            return 0;
+        }
+        double descuento = ((precioOriginal - precioActual) / precioOriginal) * 100;
+        return descuento<0 ? 0 : (int) Math.round(descuento);
     }
 }

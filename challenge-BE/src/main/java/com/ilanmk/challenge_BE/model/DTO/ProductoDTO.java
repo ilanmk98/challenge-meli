@@ -30,6 +30,7 @@ public class ProductoDTO {
     private double calificacion;
 
     private SubcategoriaProductoDTO subcategoria;
+    private int porcentajeDescuento;
 
 
     public ProductoDTO() {
@@ -143,5 +144,13 @@ public class ProductoDTO {
 
     public void setSubcategoria(SubcategoriaProductoDTO subcategoria) {
         this.subcategoria = subcategoria;
+    }
+
+    public int getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
+
+    public void setPorcentajeDescuento(int porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
     }
 }
