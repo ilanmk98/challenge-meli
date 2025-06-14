@@ -1,0 +1,46 @@
+{"productos": [
+    {
+        "id": 1,
+        "titulo": "Auriculares Bluetooth",
+        "precioOriginal": 15000.0,
+        "precioActual": 12000.0,
+        "stockActual": 10,
+        "calificacion": 4.5,
+        "descripcion": "Auriculares con excelente calidad de sonido.",
+        "cuotasSinInteres": 3,
+        "vendedorId": 1,
+        "highlights": [
+            {
+                "id": 1,
+                "texto": "Bluetooth 5.0"
+            },
+            {
+                "id": 2,
+                "texto": "20hs de batería"
+            }
+        ],
+        "media": [
+            {
+                "id": 1,
+                "url": "auriculares1.jpg",
+                "tipo": "IMAGEN"
+            },
+            {
+                "id": 2,
+                "url": "auriculares2.mp4",
+                "tipo": "VIDEO"
+            }
+        ],
+        "caracteristicas": [
+            {
+                "id": 1,
+                "texto": "Color: Negro"
+            },
+            {
+                "id": 2,
+                "texto": "Incluye micrófono"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,10 @@
+{"categoriasMedioDePago": [
+  {
+    "id": 1,
+    "nombre": "Tarjetas"
+  },
+  {
+    "id": 2,
+    "nombre": "Transferencias"
+  }
+]}

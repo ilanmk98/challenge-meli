@@ -1,11 +1,12 @@
-package com.ilanmk.challenge_BE.model;
+package com.ilanmk.challenge_BE.model.DTO;
+
+import com.ilanmk.challenge_BE.model.Caracteristica;
+import com.ilanmk.challenge_BE.model.Highlight;
+import com.ilanmk.challenge_BE.model.Media;
 
 import java.util.List;
 
-public class Producto {
-
-    private Long id;
-
+public class ProductoDTO {
     private String titulo;
 
     private double precioOriginal;
@@ -13,8 +14,6 @@ public class Producto {
     private double precioActual;
 
     private int stockActual;
-
-    private double calificacion;
 
     private List<Highlight> highlights;
 
@@ -28,12 +27,21 @@ public class Producto {
 
     private Integer cuotasSinInteres;
 
-    public Long getId() {
-        return id;
+
+    public ProductoDTO() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<Highlight> highlights, List<Media> media, List<Caracteristica> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres) {
+        this.titulo = titulo;
+        this.precioOriginal = precioOriginal;
+        this.precioActual = precioActual;
+        this.stockActual = stockActual;
+        this.highlights = highlights;
+        this.media = media;
+        this.caracteristicas = caracteristicas;
+        this.descripcion = descripcion;
+        this.vendedorId = vendedorId;
+        this.cuotasSinInteres = cuotasSinInteres;
     }
 
     public String getTitulo() {
@@ -115,11 +123,4 @@ public class Producto {
     public void setCuotasSinInteres(Integer cuotasSinInteres) {
         this.cuotasSinInteres = cuotasSinInteres;
     }
-    public void setCalificacion(double calificacion){
-        this.calificacion = calificacion;
-    }
-    public double getCalificacion(){
-        return this.calificacion;
-    }
 }
-

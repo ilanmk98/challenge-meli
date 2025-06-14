@@ -3,7 +3,6 @@ package com.ilanmk.challenge_BE.model;
 public class Caracteristica {
     private Long id;
     private String texto;
-    private Producto producto;
 
     public Long getId() {
         return id;
@@ -21,11 +20,4 @@ public class Caracteristica {
         this.texto = texto;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
 }

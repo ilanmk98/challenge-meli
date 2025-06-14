@@ -1,0 +1,14 @@
+{"mediosDePago": [
+  {
+    "id": 1,
+    "nombre": "Visa Crédito",
+    "logo": "visa.png",
+    "categoriaId": 1
+  },
+  {
+    "id": 2,
+    "nombre": "MercadoPago",
+    "logo": "mp.png",
+    "categoriaId": 2
+  }
+]}

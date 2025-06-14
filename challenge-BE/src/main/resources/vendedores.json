@@ -1,0 +1,12 @@
+{"vendedores": [
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "esVerificado": true,
+        "cantidadDeVentas": 152,
+        "brindaBuenaAtencion": true,
+        "entregaATiempo": true,
+        "foto": "juan.png",
+        "banner": "banner1.png"
+    }
+]}
