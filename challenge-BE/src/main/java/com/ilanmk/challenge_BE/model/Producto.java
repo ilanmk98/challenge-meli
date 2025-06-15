@@ -32,6 +32,10 @@ public class Producto {
 
     private Integer cuotasSinInteres;
 
+    private Integer cantidadVendidos;
+    private int cantidadCalificaciones;
+    private int rankingSubcategoria;
+
     public Long getIdCategoria() {
         return idCategoria;
     }
@@ -148,6 +152,30 @@ public class Producto {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public Integer getCantidadVendidos() {
+        return cantidadVendidos;
+    }
+
+    public void setCantidadVendidos(Integer cantidadVendidos) {
+        this.cantidadVendidos = cantidadVendidos;
+    }
+
+    public int getCantidadCalificaciones() {
+        return cantidadCalificaciones;
+    }
+
+    public void setCantidadCalificaciones(int cantidadCalificaciones) {
+        this.cantidadCalificaciones = cantidadCalificaciones;
+    }
+
+    public int getRankingSubcategoria() {
+        return rankingSubcategoria;
+    }
+
+    public void setRankingSubcategoria(int rankingSubcategoria) {
+        this.rankingSubcategoria = rankingSubcategoria;
     }
 }
 

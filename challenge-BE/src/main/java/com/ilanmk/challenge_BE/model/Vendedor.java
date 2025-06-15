@@ -15,9 +15,11 @@ public class Vendedor {
 
     private boolean entregaATiempo;
 
-    private String foto;   // URL
+    private String foto;
 
-    private String banner; // URL
+    private String banner;
+    private String calificacion;
+    private int cantidadProductos;
 
     public Long getId() {
         return id;
@@ -81,5 +83,21 @@ public class Vendedor {
 
     public void setBanner(String banner) {
         this.banner = banner;
+    }
+
+    public String getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public int getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    public void setCantidadProductos(int cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
     }
 }

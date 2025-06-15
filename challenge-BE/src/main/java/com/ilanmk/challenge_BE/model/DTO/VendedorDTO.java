@@ -8,9 +8,11 @@ public class VendedorDTO {
     private boolean entregaATiempo;
     private String foto;
     private String banner;
+    private String calificacion;
+    private int cantidadProductos;
 
     public VendedorDTO(){}
-    public VendedorDTO(String nombre, boolean esVerificado, long cantidadDeVentas, boolean brindaBuenaAtencion, boolean entregaATiempo, String foto, String banner) {
+    public VendedorDTO(String nombre, boolean esVerificado, long cantidadDeVentas, boolean brindaBuenaAtencion, boolean entregaATiempo, String foto, String banner,String calificacion, int cantidadProductos) {
         this.nombre = nombre;
         this.esVerificado = esVerificado;
         this.cantidadDeVentas = cantidadDeVentas;
@@ -18,6 +20,8 @@ public class VendedorDTO {
         this.entregaATiempo = entregaATiempo;
         this.foto = foto;
         this.banner = banner;
+        this.calificacion = calificacion;
+        this.cantidadProductos = cantidadProductos;
     }
 
     public String getNombre() {
@@ -74,5 +78,21 @@ public class VendedorDTO {
 
     public void setBanner(String banner) {
         this.banner = banner;
+    }
+
+    public String getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(String calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public int getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    public void setCantidadProductos(int cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
     }
 }

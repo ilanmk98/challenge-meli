@@ -32,13 +32,16 @@ public class ProductoDTO {
     private SubcategoriaProductoDTO subcategoria;
     private int porcentajeDescuento;
     private String marca;
+    private int cantidadVendidos;
+    private int cantidadCalificaciones;
+    private int rankingSubcategoria;
 
 
     public ProductoDTO() {
     }
 
 
-    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<HighlightDTO> highlights, List<MediaDTO> media, List<CaracteristicaDTO> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres, double calificacion,String marca) {
+    public ProductoDTO(String titulo, double precioOriginal, double precioActual, int stockActual, List<HighlightDTO> highlights, List<MediaDTO> media, List<CaracteristicaDTO> caracteristicas, String descripcion, Long vendedorId, Integer cuotasSinInteres, double calificacion,String marca, int cantidadVendidos, int cantidadCalificaciones,int rankingSubcategoria) {
         this.titulo = titulo;
         this.precioOriginal = precioOriginal;
         this.precioActual = precioActual;
@@ -51,6 +54,9 @@ public class ProductoDTO {
         this.cuotasSinInteres = cuotasSinInteres;
         this.calificacion = calificacion;
         this.marca = marca;
+        this.cantidadVendidos = cantidadVendidos;
+        this.cantidadCalificaciones = cantidadCalificaciones;
+        this.rankingSubcategoria = rankingSubcategoria;
     }
 
     public String getTitulo() {
@@ -162,5 +168,29 @@ public class ProductoDTO {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public int getCantidadVendidos() {
+        return cantidadVendidos;
+    }
+
+    public void setCantidadVendidos(int cantidadVendidos) {
+        this.cantidadVendidos = cantidadVendidos;
+    }
+
+    public int getCantidadCalificaciones() {
+        return cantidadCalificaciones;
+    }
+
+    public void setCantidadCalificaciones(int cantidadCalificaciones) {
+        this.cantidadCalificaciones = cantidadCalificaciones;
+    }
+
+    public int getRankingSubcategoria() {
+        return rankingSubcategoria;
+    }
+
+    public void setRankingSubcategoria(int rankingSubcategoria) {
+        this.rankingSubcategoria = rankingSubcategoria;
     }
 }
