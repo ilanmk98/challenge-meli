@@ -4,14 +4,15 @@ import { useState } from "react"
 import type { Product, Seller, PaymentMethod, RelatedProduct } from "@/types/product"
 import { SellerSkeleton, PaymentMethodsSkeleton } from "./loading-skeleton"
 import RelatedProducts from "./related-products"
-import ProductImageSection from "./product-image-section"
+import ProductImageSection from "./productImageSection/product-image-section"
 import productInfoSection from "./product-info"
 import StockBuyCard from "./stock-buy-card"
-import descriptionSection from "./description-section"
+import descriptionSection from "./descriptionSection/description-section"
 import sellerCard from "./seller-card"
-import paymentMethodCard from "./payment-method-card"
-import categoryBreadcrumb from "./category-breadcbrumb"
+import paymentMethodCard from "./paymentMethodCard/payment-method-card"
+import categoryBreadcrumb from "./categoryBreadcrumb/category-breadcbrumb"
 import ProductCharacteristics from "./product-characteristics"
+
 
 interface ProductDetailPageProps {
   product: Product

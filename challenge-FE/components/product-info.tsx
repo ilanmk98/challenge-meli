@@ -2,7 +2,7 @@
 import { Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import type { Product,Seller} from "@/types/product"
-import OfficialStorePromo from "./official-store"
+import OfficialStorePromo from "./officialStore/official-store"
 import RankingBadge from "./ranking-badge"
 
 export default function productInfoSection(product: Product,seller:Seller) {
