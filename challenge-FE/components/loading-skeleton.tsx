@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 export function ProductDetailSkeleton() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      {/* Image Skeleton */}
+
       <div className="lg:col-span-4">
         <Card>
           <CardContent className="p-4">
@@ -19,7 +19,7 @@ export function ProductDetailSkeleton() {
         </Card>
       </div>
 
-      {/* Product Info Skeleton */}
+
       <div className="lg:col-span-5">
         <Card>
           <CardContent className="p-6">
@@ -37,7 +37,7 @@ export function ProductDetailSkeleton() {
         </Card>
       </div>
 
-      {/* Purchase Section Skeleton */}
+
       <div className="lg:col-span-3">
         <div className="space-y-4">
           <Card>

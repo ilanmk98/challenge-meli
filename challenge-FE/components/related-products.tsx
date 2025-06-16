@@ -1,7 +1,7 @@
-import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import type { RelatedProduct } from "@/types/product"
+import Image from "next/image"
 
 interface RelatedProductsProps {
   products: RelatedProduct[]
@@ -42,7 +42,7 @@ export default function RelatedProducts({ products, loading }: RelatedProductsPr
         {products.map((product) => (
           <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
             <CardContent className="p-4">
-              {/* Product Image */}
+
               <div className="aspect-square relative mb-3 bg-gray-50 rounded-lg overflow-hidden">
                 <Image
                   src={product.image.url || "/placeholder.svg?height=200&width=200"}
@@ -52,14 +52,14 @@ export default function RelatedProducts({ products, loading }: RelatedProductsPr
                 />
               </div>
 
-              {/* Product Info */}
+
               <div className="space-y-2">
-                {/* Title */}
+
                 <h3 className="text-sm font-normal text-gray-800 line-clamp-2 leading-tight">{product.title}</h3>
 
-                {/* Price */}
+
                 <div className="space-y-1">
-                  {/* Original Price (crossed out) */}
+
                   {product.price.original && product.price.discount && (
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-gray-500 line-through">
@@ -71,12 +71,12 @@ export default function RelatedProducts({ products, loading }: RelatedProductsPr
                     </div>
                   )}
 
-                  {/* Current Price */}
+
                   <div className="text-lg font-light text-gray-900">
                     {product.price.currency} {product.price.current}
                   </div>
 
-                  {/* Installments */}
+
                   <div className="text-xs text-gray-600">
                     en {product.price.installments.count}x de {product.price.currency}{" "}
                     {product.price.installments.amount}
@@ -84,7 +84,7 @@ export default function RelatedProducts({ products, loading }: RelatedProductsPr
                   </div>
                 </div>
 
-                {/* Free Shipping Badge */}
+
                 <div className="pt-1">
                   <span className="text-xs text-green-600 font-medium">Envío gratis</span>
                 </div>

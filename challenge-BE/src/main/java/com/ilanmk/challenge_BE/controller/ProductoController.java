@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/producto")
+@RequestMapping("/productos")
 public class ProductoController {
 
     private final ProductoService productoService;
@@ -24,7 +24,7 @@ public class ProductoController {
     public ResponseEntity<ProductoDTO> obtenerPorId(@PathVariable Long id){
         return ResponseEntity.ok(productoService.obtenerPorId(id));
     }
-    @GetMapping("/relacionados/{id}")
+    @GetMapping("/{id}/relacionados")
     public ResponseEntity<List<ProductoRelacionadoDTO>> obtenerRelacionados(@PathVariable Long id){
         return ResponseEntity.ok(productoService.obtenerSimilares(id));
     }

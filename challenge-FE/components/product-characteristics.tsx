@@ -1,22 +1,20 @@
-import {
-  Smartphone,
-  Battery,
-  Wifi,
-  Bluetooth,
-  Shield,
-  Zap,
-  Nfc,
-  Speaker,
-  Headphones,
-  Usb,
-} from "lucide-react"
 import type { Product } from "@/types/product"
+import {
+  Battery,
+  Bluetooth,
+  Headphones,
+  Nfc,
+  Shield,
+  Speaker,
+  Usb,
+  Wifi,
+  Zap,
+} from "lucide-react"
 
 interface ProductCharacteristicsProps {
   characteristics: Product["characteristics"]
 }
 
-// Función para obtener el ícono apropiado basado en el texto de la característica
 const getCharacteristicIcon = (text: string) => {
   const lowerText = text.toLowerCase()
 
@@ -49,8 +47,8 @@ const getCharacteristicIcon = (text: string) => {
     return <Shield className="w-5 h-5 text-gray-500" />
   }
 
-  // Ícono por defecto
-  return <Smartphone className="w-5 h-5 text-gray-500" />
+
+  return <Speaker className="w-5 h-5 text-gray-500" />
 }
 
 export default function ProductCharacteristics({ characteristics }: ProductCharacteristicsProps) {

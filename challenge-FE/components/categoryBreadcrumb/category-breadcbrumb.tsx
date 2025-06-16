@@ -1,4 +1,4 @@
-import type { Product} from "@/types/product"
+import type { Product } from "@/types/product"
 
 export default function categoryBreadcrumb(product: Product) {
   return <div className="bg-white border-b">

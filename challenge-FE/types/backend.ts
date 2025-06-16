@@ -44,7 +44,7 @@ export interface BackendProduct {
   marca: string
   cantidadVendidos: number
   cantidadCalificaciones: number
-  rankingSubcategoria: number 
+  rankingSubcategoria: number
 }
 
 export interface BackendSeller {

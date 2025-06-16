@@ -1,9 +1,9 @@
 
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import type { Product, PaymentMethod } from "@/types/product"
+import type { PaymentMethod, Product } from "@/types/product"
+import Image from "next/image"
 
 
 export default function paymentMethodCard(product: Product, paymentMethods: PaymentMethod[]) {
@@ -25,7 +25,7 @@ export default function paymentMethodCard(product: Product, paymentMethods: Paym
 
         <Separator />
 
-        {/* Credit Cards */}
+
         <div>
           <h4 className="text-sm font-medium mb-2">Tarjetas de crédito</h4>
           <p className="text-xs text-gray-600 mb-3">¡Cuotas sin interés con bancos seleccionados!</p>
@@ -48,7 +48,7 @@ export default function paymentMethodCard(product: Product, paymentMethods: Paym
           </div>
         </div>
 
-        {/* Debit Cards */}
+
         <div>
           <h4 className="text-sm font-medium mb-2">Tarjetas de débito</h4>
           <div className="flex gap-2">
@@ -70,7 +70,6 @@ export default function paymentMethodCard(product: Product, paymentMethods: Paym
           </div>
         </div>
 
-        {/* Cash */}
         <div>
           <h4 className="text-sm font-medium mb-2">Efectivo</h4>
           <div className="flex gap-2">

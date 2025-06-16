@@ -1,14 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { apiService } from "@/services/api-service"
+import type { PaymentMethod, Product, RelatedProduct, Seller } from "@/types/product"
 import {
-  mapBackendProductToFrontend,
   mapBackendPaymentMethodsToFrontend,
-  mapBackendSellerToFrontend,
+  mapBackendProductToFrontend,
   mapBackendRelatedProductsToFrontend,
+  mapBackendSellerToFrontend,
 } from "@/utils/data-mappers"
-import type { Product, Seller, PaymentMethod, RelatedProduct } from "@/types/product"
+import { useEffect, useState } from "react"
 
 interface UseProductDataResult {
   product: Product | null

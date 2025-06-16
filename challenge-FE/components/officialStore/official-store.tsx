@@ -1,5 +1,5 @@
-import Image from "next/image"
 import type { Seller } from "@/types/product"
+import Image from "next/image"
 
 interface OfficialStorePromoProps {
   seller: Seller
@@ -27,7 +27,7 @@ export default function OfficialStorePromo({ seller, loading }: OfficialStorePro
       />
       <a href="#" className="text-sm text-blue-600 hover:underline cursor-pointer flex items-center gap-1">
         Visita la Tienda Oficial de {seller.name}
-        
+
       </a>
     </div>
   )

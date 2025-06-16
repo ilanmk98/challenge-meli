@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import categoryBreadcrumb from './category-breadcbrumb'
 import type { Product } from '@/types/product'
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
+import categoryBreadcrumb from './category-breadcbrumb'
 
-// Mock product data para las pruebas
+
 const mockProduct: Product = {
   id: '1',
   title: 'Samsung Galaxy S24 Ultra',
@@ -55,8 +55,8 @@ const mockProduct: Product = {
 describe('categoryBreadcrumb', () => {
   it('renders the breadcrumb navigation correctly', () => {
     render(categoryBreadcrumb(mockProduct))
-    
-    // Verificar que el contenedor principal existe
+
+
     const breadcrumbContainer = screen.getByRole('navigation')
     expect(breadcrumbContainer).toBeInTheDocument()
     expect(breadcrumbContainer).toHaveClass('text-sm', 'text-blue-600')
@@ -64,7 +64,7 @@ describe('categoryBreadcrumb', () => {
 
   it('displays "Volver al listado" link', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const backLink = screen.getByText('Volver al listado')
     expect(backLink).toBeInTheDocument()
     expect(backLink).toHaveClass('hover:underline', 'cursor-pointer')
@@ -72,7 +72,7 @@ describe('categoryBreadcrumb', () => {
 
   it('displays category name correctly', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const categoryName = screen.getByText('Celulares y Teléfonos')
     expect(categoryName).toBeInTheDocument()
     expect(categoryName).toHaveClass('hover:underline', 'cursor-pointer')
@@ -80,7 +80,7 @@ describe('categoryBreadcrumb', () => {
 
   it('displays subcategory name correctly', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const subcategoryName = screen.getByText('Celulares y Smartphones')
     expect(subcategoryName).toBeInTheDocument()
     expect(subcategoryName).toHaveClass('hover:underline', 'cursor-pointer')
@@ -88,7 +88,7 @@ describe('categoryBreadcrumb', () => {
 
   it('displays brand name correctly', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const brandName = screen.getByText('Samsung')
     expect(brandName).toBeInTheDocument()
     expect(brandName).toHaveClass('hover:underline', 'cursor-pointer')
@@ -96,10 +96,10 @@ describe('categoryBreadcrumb', () => {
 
   it('displays breadcrumb separators', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const separators = screen.getAllByText('›')
     expect(separators).toHaveLength(3)
-    
+
     separators.forEach(separator => {
       expect(separator).toHaveClass('mx-2')
     })
@@ -107,10 +107,10 @@ describe('categoryBreadcrumb', () => {
 
   it('has correct container styling', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const outerContainer = screen.getByRole('navigation').closest('div')
     expect(outerContainer?.parentElement).toHaveClass('bg-white', 'border-b')
-    
+
     const innerContainer = screen.getByRole('navigation').parentElement
     expect(innerContainer).toHaveClass('max-w-7xl', 'mx-auto', 'px-4', 'py-2')
   })
@@ -130,7 +130,7 @@ describe('categoryBreadcrumb', () => {
     }
 
     render(categoryBreadcrumb(differentProduct))
-    
+
     expect(screen.getByText('Electrónicos')).toBeInTheDocument()
     expect(screen.getByText('Laptops')).toBeInTheDocument()
     expect(screen.getByText('Apple')).toBeInTheDocument()
@@ -138,11 +138,11 @@ describe('categoryBreadcrumb', () => {
 
   it('maintains proper breadcrumb order', () => {
     render(categoryBreadcrumb(mockProduct))
-    
+
     const nav = screen.getByRole('navigation')
     const textContent = nav.textContent
-    
-    // Verificar que el orden sea correcto
+
+
     expect(textContent).toBe('Volver al listado›Celulares y Teléfonos›Celulares y Smartphones›Samsung')
   })
 
@@ -161,8 +161,8 @@ describe('categoryBreadcrumb', () => {
     }
 
     render(categoryBreadcrumb(edgeCaseProduct))
-    
-    // El componente debería renderizar sin errores incluso con valores vacíos
+
+
     expect(screen.getByRole('navigation')).toBeInTheDocument()
     expect(screen.getByText('Volver al listado')).toBeInTheDocument()
   })

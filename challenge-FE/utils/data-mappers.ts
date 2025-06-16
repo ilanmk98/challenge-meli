@@ -1,8 +1,7 @@
-import type { BackendProduct, BackendPaymentMethod, BackendSeller } from "@/types/backend"
-import type { Product, PaymentMethod, Seller } from "@/types/product"
+import type { BackendPaymentMethod, BackendProduct, BackendSeller } from "@/types/backend"
+import type { PaymentMethod, Product, Seller } from "@/types/product"
 
 export function mapBackendProductToFrontend(backendProduct: BackendProduct, productId: string): Product {
-  // Separar imágenes y videos
   const images = backendProduct.media
     .filter((media) => media.tipo === "IMAGEN")
     .map((media, index) => ({
@@ -12,7 +11,6 @@ export function mapBackendProductToFrontend(backendProduct: BackendProduct, prod
       type: media.tipo,
     }))
 
-  // Si no hay imágenes, agregar placeholder
   if (images.length === 0) {
     images.push({
       id: `${productId}-placeholder`,
@@ -22,24 +20,23 @@ export function mapBackendProductToFrontend(backendProduct: BackendProduct, prod
     })
   }
 
-  // Calcular precio de cuota
   const installmentAmount = Math.round(backendProduct.precioActual / backendProduct.cuotasSinInteres)
-const ranking =
+  const ranking =
     backendProduct.rankingSubcategoria && backendProduct.rankingSubcategoria <= 10
       ? {
-          position: backendProduct.rankingSubcategoria,
-          subcategory: backendProduct.subcategoria.nombre,
-        }
+        position: backendProduct.rankingSubcategoria,
+        subcategory: backendProduct.subcategoria.nombre,
+      }
       : undefined
   return {
     id: productId,
     title: backendProduct.titulo,
-    condition: "Nuevo", // Asumo que todos son nuevos por ahora
-    soldCount:backendProduct.cantidadVendidos.toString(),
+    condition: "Nuevo",
+    soldCount: backendProduct.cantidadVendidos.toString(),
     images,
     rating: {
       average: backendProduct.calificacion,
-      count: backendProduct.cantidadCalificaciones, // No viene en el backend, se puede agregar después
+      count: backendProduct.cantidadCalificaciones,
     },
     price: {
       current: backendProduct.precioActual,
@@ -68,12 +65,12 @@ const ranking =
     ],
     sellerId: backendProduct.vendedorId.toString(),
     shipping: {
-      free: true, // Asumo envío gratis por defecto
+      free: true,
       nationwide: true,
       estimatedDays: 3,
     },
     warranty: {
-      months: 12, // Asumo 12 meses por defecto
+      months: 12,
       type: "de fábrica",
     },
     category: {
@@ -91,7 +88,7 @@ const ranking =
 
 export function mapBackendPaymentMethodsToFrontend(backendMethods: BackendPaymentMethod[]): PaymentMethod[] {
   return backendMethods.map((method) => {
-    // Determinar el tipo basado en la categoría
+
     let type: "credit" | "debit" | "cash" = "credit"
 
     const categoryLower = method.categoriaNombre.toLowerCase()
@@ -111,10 +108,10 @@ export function mapBackendPaymentMethodsToFrontend(backendMethods: BackendPaymen
 }
 
 export function mapBackendSellerToFrontend(backendSeller: BackendSeller, sellerId: string): Seller {
-  // Usar directamente la calificación que viene del backend
+
   const overallRating = backendSeller.calificacion
 
-  // Generar distribución de estrellas simple basada en el rating del backend
+
   const generateStarDistribution = (rating: number) => {
     if (rating >= 4.5) {
       return { fiveStars: 85, fourStars: 12, threeStars: 2, twoStars: 1, oneStars: 0 }
@@ -131,7 +128,7 @@ export function mapBackendSellerToFrontend(backendSeller: BackendSeller, sellerI
 
   const starDistribution = generateStarDistribution(overallRating)
 
-  // Generar garantías basadas en las características del vendedor
+
   const guarantees: string[] = []
 
   if (backendSeller.brindaBuenaAtencion) {
@@ -157,14 +154,14 @@ export function mapBackendSellerToFrontend(backendSeller: BackendSeller, sellerI
     name: backendSeller.nombre,
     logo: backendSeller.foto,
     banner: backendSeller.banner,
-    isOfficial: false, // No hay campo específico para tienda oficial
+    isOfficial: false,
     isVerified: backendSeller.esVerificado,
     rating: {
-      overall: overallRating, // Usar directamente el valor del backend
+      overall: overallRating,
       ...starDistribution,
     },
     totalSales: formatSalesCount(backendSeller.cantidadDeVentas),
-    totalProducts: backendSeller.cantidadProductos, // No viene en el backend, valor por defecto
+    totalProducts: backendSeller.cantidadProductos,
     salesCount: backendSeller.cantidadDeVentas,
     guarantees,
     serviceQuality: {
@@ -175,12 +172,12 @@ export function mapBackendSellerToFrontend(backendSeller: BackendSeller, sellerI
 }
 export function mapBackendRelatedProductsToFrontend(backendProducts: BackendRelatedProduct[]): RelatedProduct[] {
   return backendProducts.map((product, index) => {
-    // Calcular descuento si hay precio original
-    const discount = product.precioOriginal > product.precioActual 
+
+    const discount = product.precioOriginal > product.precioActual
       ? Math.round(((product.precioOriginal - product.precioActual) / product.precioOriginal) * 100)
       : undefined
 
-    // Calcular precio de cuota
+
     const installmentAmount = Math.round(product.precioActual / product.cuotasSinInteres)
 
     return {

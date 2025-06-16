@@ -1,8 +1,8 @@
 
-import { Shield, Undo,BadgeCheck  } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import type { Product} from "@/types/product"
+import type { Product } from "@/types/product"
+import { BadgeCheck, Shield, Undo } from "lucide-react"
 
 
 export default function StockBuyCard(product: Product, quantity: number, setQuantity) {
@@ -10,7 +10,7 @@ export default function StockBuyCard(product: Product, quantity: number, setQuan
     <CardContent className="p-6">
       {/* Stock */}
       <div className="mb-6">
-            {product.shipping.free && (
+        {product.shipping.free && (
           <div className="flex items-start gap-3">
             <div>
               <p className="text-sm font-medium text-green-600">
@@ -43,7 +43,7 @@ export default function StockBuyCard(product: Product, quantity: number, setQuan
         )}
       </div>
 
-      {/* Action Buttons */}
+
       <div className="space-y-3 mb-6">
         <Button
           className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3"
@@ -60,7 +60,7 @@ export default function StockBuyCard(product: Product, quantity: number, setQuan
         </Button>
       </div>
 
-      {/* Shipping Info */}
+
       <div className="space-y-3">
         <div className="flex items-start gap-3">
           <Undo className="w-5 h-5 text-green-600 mt-0.5" />
@@ -81,7 +81,7 @@ export default function StockBuyCard(product: Product, quantity: number, setQuan
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <BadgeCheck  className="w-5 h-5 text-green-600 mt-0.5" />
+          <BadgeCheck className="w-5 h-5 text-green-600 mt-0.5" />
           <div>
             <p className="text-xs text-gray-600">
               {product.warranty.months} meses de garantía {product.warranty.type}

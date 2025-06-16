@@ -1,14 +1,14 @@
-import Link from "next/link"
-import { Search, ShoppingCart, User, MapPin } from "lucide-react"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { MapPin, Search, ShoppingCart, User } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Header() {
   return (
     <header className="bg-[#fff159] border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Top bar */}
+
         <div className="flex items-center justify-between py-2 text-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
@@ -29,9 +29,9 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Main header */}
+
         <div className="flex items-center gap-4 py-3">
-          {/* Logo */}
+
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/mercadolibre-logo.png"
@@ -42,7 +42,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* Search bar */}
+
           <div className="flex-1 max-w-2xl">
             <div className="relative">
               <Input
@@ -59,7 +59,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Right actions */}
+
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" className="flex items-center gap-2">
               <User className="w-4 h-4" />
@@ -72,7 +72,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Categories */}
+
         <div className="flex items-center gap-6 py-2 text-sm border-t border-gray-200">
           <Link href="#" className="hover:underline">
             Categorías

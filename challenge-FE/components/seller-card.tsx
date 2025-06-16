@@ -1,10 +1,9 @@
 
-import Image from "next/image"
-import { Shield, Truck, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Seller } from "@/types/product"
+import { Check, Shield } from "lucide-react"
+import Image from "next/image"
 import SellerRatingBar from "./seller-rating-bar"
 
 
@@ -13,16 +12,16 @@ export default function sellerCard(seller: Seller) {
         <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    
+
                     <div>
                         <div className="w-12 h-12 bg-white-600 rounded-none flex items-center justify-center overflow-hidden">
-                        <Image
-                            src={seller.logo || "/placeholder.svg?height=48&width=48&text=S"}
-                            alt={seller.name}
-                            width={48}
-                            height={48}
-                            className="rounded-full object-cover" />
-                    </div>
+                            <Image
+                                src={seller.logo || "/placeholder.svg?height=48&width=48&text=S"}
+                                alt={seller.name}
+                                width={48}
+                                height={48}
+                                className="rounded-full object-cover" />
+                        </div>
                         <div className="flex flex-col items-start gap-1">
                             <p className="font-medium">{seller.name}</p>
                             {seller.isVerified && (
@@ -33,11 +32,11 @@ export default function sellerCard(seller: Seller) {
                                     <p className="text-xs text-blue-600">Tienda oficial de Mercado Libre</p>
                                 </div>
                             )}
-                            
+
                         </div>
 
                     </div>
-                     
+
                 </div>
             </div>
 

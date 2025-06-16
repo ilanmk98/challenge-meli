@@ -1,4 +1,4 @@
-import type { BackendProduct, BackendPaymentMethod, BackendSeller } from "@/types/backend"
+import type { BackendPaymentMethod, BackendProduct, BackendSeller } from "@/types/backend"
 
 export interface ApiResponse<T> {
   data: T | null
@@ -35,21 +35,21 @@ export class ApiService {
 
   async getProductDetails(productId: string): Promise<BackendProduct> {
     console.log(`Fetching product details for ID: ${productId}`)
-    return this.makeRequest<BackendProduct>(`/producto/${productId}`)
+    return this.makeRequest<BackendProduct>(`/productos/${productId}`)
   }
 
   async getSellerDetails(sellerId: string): Promise<BackendSeller> {
     console.log(`Fetching seller details for ID: ${sellerId}`)
-    return this.makeRequest<BackendSeller>(`/vendedor/${sellerId}`)
+    return this.makeRequest<BackendSeller>(`/vendedores/${sellerId}`)
   }
 
   async getPaymentMethods(): Promise<BackendPaymentMethod[]> {
     console.log("Fetching payment methods")
-    return this.makeRequest<BackendPaymentMethod[]>("/medio-pago/listar")
+    return this.makeRequest<BackendPaymentMethod[]>("/medios-pago")
   }
   async getRelatedProducts(productId: string): Promise<BackendRelatedProduct[]> {
     console.log(`Fetching related products for ID: ${productId}`)
-    return this.makeRequest<BackendRelatedProduct[]>(`/producto/relacionados/${productId}`)
+    return this.makeRequest<BackendRelatedProduct[]>(`/productos/${productId}/relacionados`)
   }
 }
 

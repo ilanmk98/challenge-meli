@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/medio-pago")
+@RequestMapping("/medios-pago")
 public class MedioDePagoController {
     private final MedioDePagoService medioDePagoService;
 
     public MedioDePagoController (MedioDePagoService medioDePagoService){
         this.medioDePagoService = medioDePagoService;
     }
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<MedioPagoDTO>> listarTodos(){
         return ResponseEntity.ok(medioDePagoService.listarTodos());
     }

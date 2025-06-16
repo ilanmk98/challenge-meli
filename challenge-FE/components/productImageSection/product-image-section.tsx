@@ -1,6 +1,6 @@
 
-import Image from "next/image"
 import type { Product } from "@/types/product"
+import Image from "next/image"
 
 type Props = {
   product: Product
@@ -13,7 +13,7 @@ export default function ProductImageSection({ product, selectedImage, setSelecte
     <div className="top-4 flex flex-col gap-4">
       <div className="bg-white rounded-lg p-4">
         <div className="flex gap-4">
-          {/* Thumbnails - Vertical */}
+
           <div className="flex flex-col gap-2">
             {product.images.map((image, index) => (
               <button
@@ -31,7 +31,7 @@ export default function ProductImageSection({ product, selectedImage, setSelecte
             ))}
           </div>
 
-          {/* Main Image */}
+
           <div className="flex-1 aspect-[3/4] relative">
             <Image
               src={product.images[selectedImage]?.url || "/placeholder.svg"}

@@ -1,19 +1,19 @@
 "use client"
 
-import { useProductData } from "@/hooks/use-product-data"
-import ProductDetailPage from "@/components/product-detail-page"
+import Header from "@/components/header"
 import { ProductDetailSkeleton } from "@/components/loading-skeleton"
 import { LoadingSpinner } from "@/components/loading-spinner"
-import Header from "@/components/header"
-import { useParams } from "next/navigation"
+import ProductDetailPage from "@/components/product-detail-page"
 import { Card, CardContent } from "@/components/ui/card"
+import { useProductData } from "@/hooks/use-product-data"
+import { useParams } from "next/navigation"
 
 export default function Home() {
   const params = useParams()
-const productId = params?.id as string // En una app real vendría de los parámetros de la URL
+  const productId = params?.id as string
   const { product, seller, paymentMethods, relatedProducts, loading, error, currentStep } = useProductData(productId)
 
-  // Mostrar estado de carga inicial
+
   if (loading.product || (!product && !error.product)) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -61,7 +61,7 @@ const productId = params?.id as string // En una app real vendría de los parám
     )
   }
 
-  // Mostrar estado de error del producto
+
   if (error.product) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -73,7 +73,7 @@ const productId = params?.id as string // En una app real vendría de los parám
               <p className="text-gray-600 mb-4">{error.product}</p>
               <div className="space-y-2 text-sm text-gray-500">
                 <p>Probar mas tarde</p>
-              
+
               </div>
               <button
                 onClick={() => window.location.reload()}
@@ -92,7 +92,7 @@ const productId = params?.id as string // En una app real vendría de los parám
     <div className="min-h-screen bg-gray-50">
       <Header />
 
-      {/* Indicador de progreso para seller, payment methods y related products */}
+
       {(loading.seller || loading.paymentMethods || loading.relatedProducts) && (
         <div className="bg-blue-50 border-b border-blue-200">
           <div className="max-w-7xl mx-auto px-4 py-2">
@@ -110,7 +110,7 @@ const productId = params?.id as string // En una app real vendría de los parám
         </div>
       )}
 
-      {/* Mostrar errores no críticos */}
+
       {(error.seller || error.paymentMethods || error.relatedProducts) && (
         <div className="bg-yellow-50 border-b border-yellow-200">
           <div className="max-w-7xl mx-auto px-4 py-2">
