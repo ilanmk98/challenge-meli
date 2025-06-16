@@ -1,9 +1,5 @@
 package com.ilanmk.challenge_BE.model.DTO;
 
-import com.ilanmk.challenge_BE.model.Caracteristica;
-import com.ilanmk.challenge_BE.model.Highlight;
-import com.ilanmk.challenge_BE.model.Media;
-
 import java.util.List;
 
 public class ProductoDTO {

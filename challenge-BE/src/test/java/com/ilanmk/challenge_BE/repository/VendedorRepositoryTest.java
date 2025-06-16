@@ -8,7 +8,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VendedorRepositoryTest {
     private VendedorRepository repository;
@@ -19,10 +20,8 @@ class VendedorRepositoryTest {
 
         Vendedor vendedor1 = new Vendedor();
         vendedor1.setId(1L);
-
         List<Vendedor> mockVendedores = List.of(vendedor1);
 
-        // Inyectar lista simulada usando reflexión
         Field field = VendedorRepository.class.getDeclaredField("vendedores");
         field.setAccessible(true);
         field.set(repository, mockVendedores);

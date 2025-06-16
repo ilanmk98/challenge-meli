@@ -8,22 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import com.ilanmk.challenge_BE.model.DTO.MedioPagoDTO;
-import com.ilanmk.challenge_BE.service.MedioDePagoService;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.List;
-
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 @WebMvcTest(VendedorController.class)
 class VendedorControllerTest {
@@ -36,7 +24,6 @@ class VendedorControllerTest {
 
     @Test
     void obtenerPorId_deberiaRetornarVendedorDTO() throws Exception {
-        // Arrange
         VendedorDTO vendedor = new VendedorDTO();
         vendedor.setNombre("Juan Pérez");
         vendedor.setEsVerificado(true);
@@ -50,7 +37,6 @@ class VendedorControllerTest {
 
         when(vendedorService.obtenerPorId(1L)).thenReturn(vendedor);
 
-        // Act & Assert
         mockMvc.perform(get("/vendedor/1"))
                 .andExpect(status().isOk());
     }

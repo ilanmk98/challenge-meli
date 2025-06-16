@@ -8,7 +8,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CategoriaMedioPagoRepositoryTest {
 
@@ -17,14 +18,11 @@ class CategoriaMedioPagoRepositoryTest {
     @BeforeEach
     void setUp() throws Exception {
         repository = new CategoriaMedioPagoRepository();
-
-        // Crea una lista mock de categorias
         CategoriaMedioPago cat1 = new CategoriaMedioPago(1L, "Tarjetas");
         CategoriaMedioPago cat2 = new CategoriaMedioPago(2L, "Efectivo");
 
         List<CategoriaMedioPago> mockLista = List.of(cat1, cat2);
 
-        // Usamos reflexión para setear el campo privado
         Field field = CategoriaMedioPagoRepository.class.getDeclaredField("categoriasMedioDePago");
         field.setAccessible(true);
         field.set(repository, mockLista);

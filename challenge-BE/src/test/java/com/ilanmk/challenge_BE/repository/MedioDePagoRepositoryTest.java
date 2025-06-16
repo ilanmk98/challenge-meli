@@ -1,15 +1,13 @@
 package com.ilanmk.challenge_BE.repository;
 
-import com.ilanmk.challenge_BE.model.CategoriaProducto;
 import com.ilanmk.challenge_BE.model.MedioDePago;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MedioDePagoRepositoryTest {
     private MedioDePagoRepository repository;

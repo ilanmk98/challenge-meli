@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ilanmk.challenge_BE.model.CategoriaMedioPago;
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
