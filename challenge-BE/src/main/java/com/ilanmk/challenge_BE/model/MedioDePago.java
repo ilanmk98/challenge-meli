@@ -6,6 +6,16 @@ public class MedioDePago {
     private String logo;
     private Long categoriaId;
 
+    public MedioDePago() {
+    }
+
+    public MedioDePago(Long id, String nombre, String logo, Long categoriaId) {
+        this.id = id;
+        this.nombre = nombre;
+        this.logo = logo;
+        this.categoriaId = categoriaId;
+    }
+
     public Long getId() {
         return id;
     }

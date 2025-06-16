@@ -1,20 +1,14 @@
 import {
   Smartphone,
-  Camera,
-  HardDrive,
-  Cpu,
   Battery,
   Wifi,
   Bluetooth,
   Shield,
   Zap,
-  Monitor,
-  Fingerprint,
   Nfc,
   Speaker,
   Headphones,
   Usb,
-  ScanFace,
 } from "lucide-react"
 import type { Product } from "@/types/product"
 
@@ -26,29 +20,10 @@ interface ProductCharacteristicsProps {
 const getCharacteristicIcon = (text: string) => {
   const lowerText = text.toLowerCase()
 
-  if (
-    lowerText.includes("memoria") ||
-    lowerText.includes("almacenamiento") ||
-    lowerText.includes("gb") ||
-    lowerText.includes("tb")
-  ) {
-    return <HardDrive className="w-5 h-5 text-gray-500" />
-  }
-  if (lowerText.includes("cámara frontal") || lowerText.includes("camara frontal")) {
-    return <Smartphone className="w-5 h-5 text-gray-500" />
-  }
-  if (lowerText.includes("cámara") || lowerText.includes("camara") || lowerText.includes("mp")) {
-    return <Camera className="w-5 h-5 text-gray-500" />
-  }
-  if (lowerText.includes("procesador") || lowerText.includes("cpu") || lowerText.includes("chipset")) {
-    return <Cpu className="w-5 h-5 text-gray-500" />
-  }
   if (lowerText.includes("batería") || lowerText.includes("bateria") || lowerText.includes("mah")) {
     return <Battery className="w-5 h-5 text-gray-500" />
   }
-  if (lowerText.includes("pantalla") || lowerText.includes("display") || lowerText.includes("pulgadas")) {
-    return <Monitor className="w-5 h-5 text-gray-500" />
-  }
+
   if (lowerText.includes("wifi") || lowerText.includes("wi-fi")) {
     return <Wifi className="w-5 h-5 text-gray-500" />
   }
@@ -57,12 +32,6 @@ const getCharacteristicIcon = (text: string) => {
   }
   if (lowerText.includes("nfc")) {
     return <Nfc className="w-5 h-5 text-gray-500" />
-  }
-  if (lowerText.includes("desbloqueo") || lowerText.includes("huella") || lowerText.includes("fingerprint")) {
-    return <Fingerprint className="w-5 h-5 text-gray-500" />
-  }
-  if (lowerText.includes("reconocimiento facial") || lowerText.includes("face")) {
-    return <ScanFace className="w-5 h-5 text-gray-500" />
   }
   if (lowerText.includes("audio") || lowerText.includes("sonido") || lowerText.includes("altavoz")) {
     return <Speaker className="w-5 h-5 text-gray-500" />

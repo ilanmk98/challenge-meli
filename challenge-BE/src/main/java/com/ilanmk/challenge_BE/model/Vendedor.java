@@ -21,6 +21,9 @@ public class Vendedor {
     private String calificacion;
     private int cantidadProductos;
 
+    public Vendedor() {
+    }
+
     public Long getId() {
         return id;
     }

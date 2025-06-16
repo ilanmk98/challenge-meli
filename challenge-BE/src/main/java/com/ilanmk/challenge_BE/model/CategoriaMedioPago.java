@@ -4,6 +4,14 @@ public class CategoriaMedioPago {
     private Long id;
     private String nombre;
 
+    public CategoriaMedioPago(Long id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
+    public CategoriaMedioPago() {
+    }
+
     public Long getId() {
         return id;
     }
