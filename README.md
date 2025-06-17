@@ -66,7 +66,7 @@ Se implementó un manejador global de excepciones con el objetivo de centralizar
 
 ---
 #### Tests
-Se utilizó JUnit 5 para realizar los tests de los casos planteados y Mockito para inyectar las simulaciones y poder realizar las pruebas de manera aislada.
+Se utilizó JUnit 5 para realizar los tests de los casos planteados y Mockito para inyectar las simulaciones y poder realizar las pruebas de manera aislada. A su vez, se agregaron tests de integracion en la carpeta integrations, tener en cuenta que el funcionamiento de estos tests, al ser de integracion, dependen tanto de todas las capas de la aplicacion como de los JSON de datos.
 
 ### FE
 ---
