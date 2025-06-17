@@ -1,9 +1,9 @@
 package com.ilanmk.challenge_BE.service.impl;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.model.DTO.VendedorDTO;
 import com.ilanmk.challenge_BE.repository.VendedorRepository;
 import com.ilanmk.challenge_BE.service.VendedorService;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

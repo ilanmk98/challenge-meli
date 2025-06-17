@@ -1,8 +1,8 @@
 package com.ilanmk.challenge_BE.service.impl;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.repository.CategoriaMedioPagoRepository;
 import com.ilanmk.challenge_BE.service.CategoriaMedioPagoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service

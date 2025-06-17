@@ -1,5 +1,6 @@
 package com.ilanmk.challenge_BE.service.impl;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.model.DTO.MediaDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoRelacionadoDTO;
@@ -7,7 +8,6 @@ import com.ilanmk.challenge_BE.model.Producto;
 import com.ilanmk.challenge_BE.repository.ProductoRepository;
 import com.ilanmk.challenge_BE.service.ProductoService;
 import com.ilanmk.challenge_BE.service.SubcategoriaProductoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +44,7 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public List<ProductoRelacionadoDTO> obtenerSimilares(Long id) {
-        Long idSubcategoria = repositorio.obtenerSubcategoria(id).get();
+        Long idSubcategoria = repositorio.obtenerSubcategoria(id).stream().findFirst().orElseThrow(()->new EntityNotFoundException("No se encontro el producto"));
         return repositorio.obtenerMismaSubcategoria(id,idSubcategoria,CANTIDAD_PRODUCTOS_SIMILARES_MAXIMA)
                 .stream().map(producto-> obtenerProductoRelacionadoDTO(producto))
                 .toList();

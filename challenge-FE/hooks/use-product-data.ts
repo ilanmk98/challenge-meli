@@ -55,7 +55,6 @@ export function useProductData(productId: string): UseProductDataResult {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Step 1: Fetch Product Details
         setCurrentStep("product")
         setLoading((prev) => ({ ...prev, product: true }))
         setError((prev) => ({ ...prev, product: null }))
@@ -65,7 +64,6 @@ export function useProductData(productId: string): UseProductDataResult {
         setProduct(mappedProduct)
         setLoading((prev) => ({ ...prev, product: false }))
 
-        // Step 2: Fetch Seller Details
         setCurrentStep("seller")
         setLoading((prev) => ({ ...prev, seller: true }))
         setError((prev) => ({ ...prev, seller: null }))
@@ -84,7 +82,6 @@ export function useProductData(productId: string): UseProductDataResult {
         }
         setLoading((prev) => ({ ...prev, seller: false }))
 
-        // Step 3: Fetch Payment Methods
         setCurrentStep("payment")
         setLoading((prev) => ({ ...prev, paymentMethods: true }))
         setError((prev) => ({ ...prev, paymentMethods: null }))
@@ -103,7 +100,7 @@ export function useProductData(productId: string): UseProductDataResult {
         }
         setLoading((prev) => ({ ...prev, paymentMethods: false }))
 
-        // Step 4: Fetch Related Products
+
         setCurrentStep("related")
         setLoading((prev) => ({ ...prev, relatedProducts: true }))
         setError((prev) => ({ ...prev, relatedProducts: null }))
