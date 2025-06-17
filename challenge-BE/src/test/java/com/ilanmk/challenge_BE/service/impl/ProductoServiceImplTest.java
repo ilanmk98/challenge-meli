@@ -1,5 +1,6 @@
 package com.ilanmk.challenge_BE.service.impl;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.model.DTO.MediaDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoRelacionadoDTO;
@@ -7,7 +8,6 @@ import com.ilanmk.challenge_BE.model.DTO.SubcategoriaProductoDTO;
 import com.ilanmk.challenge_BE.model.Producto;
 import com.ilanmk.challenge_BE.repository.ProductoRepository;
 import com.ilanmk.challenge_BE.service.SubcategoriaProductoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;

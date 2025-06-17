@@ -1,11 +1,11 @@
 package com.ilanmk.challenge_BE.controller;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.model.DTO.MediaDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoDTO;
 import com.ilanmk.challenge_BE.model.DTO.ProductoRelacionadoDTO;
 import com.ilanmk.challenge_BE.model.Enum.TipoMedia;
 import com.ilanmk.challenge_BE.service.ProductoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -34,7 +34,7 @@ public class ProductoControllerTest {
         productoDTO.setTitulo("Producto Test");
         when(productoService.obtenerPorId(1L)).thenReturn(productoDTO);
 
-        mockMvc.perform(get("/producto/1"))
+        mockMvc.perform(get("/productos/1"))
                 .andExpect(status().isOk());
 
         verify(productoService,times(1)).obtenerPorId(1L);
@@ -42,8 +42,8 @@ public class ProductoControllerTest {
 
     @Test
     void obtenerPorId_deberiaRetornar404() throws Exception {
-        when(productoService.obtenerPorId(1L)).thenThrow(new EntityNotFoundException());
-        mockMvc.perform(get("/producto/1"))
+        when(productoService.obtenerPorId(1L)).thenThrow(new EntityNotFoundException("error"));
+        mockMvc.perform(get("/productos/1"))
                 .andExpect(status().isNotFound());
 
         verify(productoService).obtenerPorId(1L);
@@ -58,7 +58,7 @@ public class ProductoControllerTest {
         producto1.setImagen(media);
         when(productoService.obtenerSimilares(1L)).thenReturn(List.of(producto1));
 
-        mockMvc.perform(get("/producto/relacionados/1"))
+        mockMvc.perform(get("/productos/1/relacionados"))
                 .andExpect(status().isOk());
 
         verify(productoService).obtenerSimilares(1L);

@@ -31,7 +31,7 @@ class MedioDePagoControllerTest {
 
         when(medioDePagoService.listarTodos()).thenReturn(medios);
 
-        mockMvc.perform(get("/medio-pago/listar"))
+        mockMvc.perform(get("/medios-pago"))
                 .andExpect(status().isOk());
 
         verify(medioDePagoService,times(1)).listarTodos();

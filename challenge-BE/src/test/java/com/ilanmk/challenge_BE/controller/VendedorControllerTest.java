@@ -1,8 +1,8 @@
 package com.ilanmk.challenge_BE.controller;
 
+import com.ilanmk.challenge_BE.exception.EntityNotFoundException;
 import com.ilanmk.challenge_BE.model.DTO.VendedorDTO;
 import com.ilanmk.challenge_BE.service.VendedorService;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -37,7 +37,7 @@ class VendedorControllerTest {
 
         when(vendedorService.obtenerPorId(1L)).thenReturn(vendedor);
 
-        mockMvc.perform(get("/vendedor/1"))
+        mockMvc.perform(get("/vendedores/1"))
                 .andExpect(status().isOk());
     }
 
