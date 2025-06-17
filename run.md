@@ -10,5 +10,6 @@
 1. Abrir la terminal de comandos en la carpeta donde desee clonar el repositorio. 
 2. Ejecutar el comando 'git clone https://github.com/ilanmk98/challenge-meli.git' para clonar el repositorio remoto
 3. Ejecutar el comando 'cd challenge-meli' para ingresar a la carpeta donde estan los archivos
-4. Ejecutar el comando 'docker-compose up' para levantar la aplicacion. 
-5. La aplicacion ya esta levantada y puede ingresar a ver los productos en 'http://localhost:3000/producto/1'
+4. Ejecutar Docker
+5. Ejecutar el comando 'docker-compose up' para levantar la aplicacion. 
+6. La aplicacion ya esta levantada y puede ingresar a ver los productos en 'http://localhost:3000/producto/1'
